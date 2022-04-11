@@ -1,4 +1,4 @@
-# ver 0.4
+# ver 0.5
 # vlad note: to install the Requests module:
 #  python -m pip install requests
 
@@ -6,8 +6,11 @@ import requests
 from requests.auth import HTTPDigestAuth
 import json
 
-#results = requests.get('https://api.weather.gov/gridpoints/TOP/31,80/forecast')
-results = requests.get('https://swapi.dev/api/')
+apiURL = 'https://swapi.dev/api/'
+#apiURL = 'https://api.weather.gov/gridpoints/TOP/31,80/forecast'
+
+print(f'sending GET request to API URL {apiURL}')
+results = requests.get(apiURL)
 
 if results.ok:
     print('response status: 200 ok')
