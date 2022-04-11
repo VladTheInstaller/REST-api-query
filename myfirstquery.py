@@ -1,4 +1,4 @@
-# ver 0.2
+# ver 0.3
 # vlad note: to install the Requests module:
 #  python -m pip install requests
 
@@ -10,13 +10,15 @@ results = requests.get('https://api.weather.gov/gridpoints/TOP/31,80/forecast')
 
 if results.ok:
     print('response status: 200 ok')
-    #print((results.text))
+
+    # load the returned payload into JSON
     jData = json.loads(results.content)
 
     print(f'The JSON response contains {len(jData)} properties:')
-    for key in jData:
-        print(f'{key} : {jData[key]}')
 
+    #print out the JSON results in a pretty indented format
+    json_formatted_str = json.dumps(jData, indent=2)
+    print(json_formatted_str)
 
 else:
     print(f'something went wrong with the REST request. response status: {results.status_code}')
