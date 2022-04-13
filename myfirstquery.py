@@ -6,8 +6,9 @@ import requests
 from requests.auth import HTTPDigestAuth
 import json
 
-apiURL = 'https://swapi.dev/api/'
+#apiURL = 'https://swapi.dev/api/people/1/'
 #apiURL = 'https://api.weather.gov/gridpoints/TOP/31,80/forecast'
+apiURL = 'http://api.weatherapi.com/v1/current.json?key=aa28987a06984135a5800029221304&q=London'
 
 print(f'sending GET request to API URL {apiURL}')
 response = requests.get(apiURL)
